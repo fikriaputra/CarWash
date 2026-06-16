@@ -1,45 +1,85 @@
 import { FaArrowRight } from "react-icons/fa";
 
 const HeroButtons = () => {
+  const scrollToSection = (
+    sectionId
+  ) => {
+    const section =
+      document.getElementById(
+        sectionId
+      );
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col sm:flex-row gap-4 mt-10">
+      {/* Booking */}
       <button
+        onClick={() =>
+          scrollToSection("pricing")
+        }
         className="
           bg-lime-400
           text-black
+
           px-8
           py-4
+
           rounded-xl
+
           font-semibold
+
           flex
           items-center
           justify-center
           gap-3
+
           transition-all
           duration-300
+
           hover:scale-105
+
           shadow-lg
           shadow-lime-500/20
+
           hover:shadow-lime-400/40
         "
       >
         Booking Sekarang
+
         <FaArrowRight />
       </button>
 
+      {/* Services */}
       <button
+        onClick={() =>
+          scrollToSection("services")
+        }
         className="
           border
           border-white/70
+
           bg-white/5
           backdrop-blur-sm
+
           text-white
+
           px-8
           py-4
+
           rounded-xl
+
           font-medium
+
           transition-all
           duration-300
+
           hover:bg-white
           hover:text-black
         "

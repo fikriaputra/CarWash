@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import {
   HiOutlineMenuAlt3,
@@ -25,6 +28,15 @@ const Navbar = () => {
   const [scrolled, setScrolled] =
     useState(false);
 
+  const [activeSection, setActiveSection] =
+    useState("home");
+
+  /*
+  -----------------------------------
+  Navbar Background On Scroll
+  -----------------------------------
+  */
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(
@@ -44,14 +56,69 @@ const Navbar = () => {
       );
   }, []);
 
+  /*
+  -----------------------------------
+  Active Section Observer
+  -----------------------------------
+  */
+
+  useEffect(() => {
+    const sections =
+      navigationLinks
+        .map((item) =>
+          document.querySelector(
+            item.href
+          )
+        )
+        .filter(Boolean);
+
+    const observer =
+      new IntersectionObserver(
+        (entries) => {
+          entries.forEach(
+            (entry) => {
+              if (
+                entry.isIntersecting
+              ) {
+                setActiveSection(
+                  entry.target.id
+                );
+              }
+            }
+          );
+        },
+        {
+          rootMargin:
+            "-120px 0px -40% 0px",
+        }
+      );
+
+    sections.forEach(
+      (section) =>
+        observer.observe(section)
+    );
+
+    return () => {
+      sections.forEach(
+        (section) =>
+          observer.unobserve(
+            section
+          )
+      );
+    };
+  }, []);
+
   return (
     <header
       className={`
         fixed
         top-0
         left-0
+
         w-full
+
         z-50
+
         transition-all
         duration-300
 
@@ -66,9 +133,9 @@ const Navbar = () => {
         className="
           max-w-7xl
           mx-auto
+
           px-5
           lg:px-8
-          py
         "
       >
         <div
@@ -88,6 +155,7 @@ const Navbar = () => {
                 h-14
                 md:h-16
                 lg:h-20
+
                 object-contain
               "
             />
@@ -99,28 +167,34 @@ const Navbar = () => {
             className="
               hidden
               md:flex
+
               items-center
+
               gap-8
             "
           >
             {navigationLinks.map(
-              (item, index) => (
+              (item) => (
                 <NavLink
                   key={item.id}
                   href={item.href}
                   label={item.label}
-                  active={index === 0}
+                  active={
+                    activeSection ===
+                    item.id
+                  }
                 />
               )
             )}
           </div>
 
-          {/* Desktop CTA */}
+          {/* CTA */}
 
           <button
             className="
               hidden
               md:flex
+
               items-center
               gap-3
 
@@ -135,11 +209,12 @@ const Navbar = () => {
               font-semibold
 
               hover:scale-105
+
               transition-all
               duration-300
             "
           >
-            Join Today
+            Gabung
 
             <FaArrowRight />
           </button>
@@ -152,6 +227,7 @@ const Navbar = () => {
             }
             className="
               md:hidden
+
               text-white
               text-3xl
             "
@@ -163,6 +239,8 @@ const Navbar = () => {
             )}
           </button>
         </div>
+
+        {/* Mobile Menu */}
 
         <MobileMenu
           isOpen={isOpen}

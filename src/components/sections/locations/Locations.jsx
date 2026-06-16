@@ -123,7 +123,7 @@ const activeLocationData =
 >
   <FaDirections />
 
-  Get Directions
+  Dapatkan Petunjuk Arah
 </button>
         </div>
       </div>

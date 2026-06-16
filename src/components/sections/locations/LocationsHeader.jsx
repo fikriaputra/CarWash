@@ -29,7 +29,7 @@ const LocationsHeader = () => {
           text-white
         "
       >
-        Find A Location
+        Temukan Lokasi
       </motion.h2>
 
       <motion.p
@@ -56,9 +56,9 @@ const LocationsHeader = () => {
           text-lg
         "
       >
-        At Bunda Car Wash, we're growing and
-        finding new convenient locations.
-        Find the nearest branch around you.
+        Di Bunda Car Wash, kami terus berkembang dan
+        menemukan lokasi baru yang nyaman.
+        Temukan cabang terdekat di sekitar Anda.
       </motion.p>
     </div>
   );

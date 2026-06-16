@@ -1,37 +1,53 @@
-export const navigationLinks = [
+export const menuLinks = [
   {
-    id: "home",
     label: "Home",
     href: "#home",
   },
 
   {
-    id: "services",
     label: "Services",
     href: "#services",
   },
 
   {
-    id: "locations",
     label: "Locations",
     href: "#locations",
   },
 
   {
-    id: "pricing",
     label: "Pricing",
     href: "#pricing",
   },
 
   {
-    id: "reviews",
     label: "Reviews",
     href: "#reviews",
   },
 
   {
-    id: "footer",
     label: "Contact",
     href: "#footer",
+  },
+];
+
+export const communityLinks = [
+  {
+    label: "News",
+    href: "#",
+  },
+
+  {
+    label: "Donations",
+    href: "#",
+  },
+
+  {
+    label: "Fundraising",
+    href: "#",
+  },
+
+  {
+    label: "Community",
+    href: "#",
   },
 ];
