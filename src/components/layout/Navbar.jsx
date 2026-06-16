@@ -31,6 +31,22 @@ const Navbar = () => {
   const [activeSection, setActiveSection] =
     useState("home");
 
+  const scrollToSection = (
+    sectionId
+  ) => {
+    const section =
+      document.getElementById(
+        sectionId
+      );
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   /*
   -----------------------------------
   Navbar Background On Scroll
@@ -191,6 +207,9 @@ const Navbar = () => {
           {/* CTA */}
 
           <button
+        onClick={() =>
+          scrollToSection("pricing")
+        }
             className="
               hidden
               md:flex

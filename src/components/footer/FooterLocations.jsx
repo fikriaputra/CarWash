@@ -1,6 +1,5 @@
 const locations = [
-  "Tangerang",
-  "Jakarta",
+  "Sumedang",
   "Bandung",
 ];
 

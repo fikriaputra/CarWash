@@ -41,8 +41,7 @@ const FooterContact = () => {
               text-sm
             "
           >
-            Jl. Raya Serpong No. 88,
-            Tangerang Selatan
+            Jl. Raya Rd Umar Wirahadikusumah No. 268
           </p>
         </div>
 
